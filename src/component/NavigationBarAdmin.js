@@ -11,9 +11,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/Login+Logout.css";
 import "../css/NavBar.css";
 import styled from 'styled-components'
+import { Switch, Route, Link } from "react-router-dom";
 
-
-export default class NavigationBar extends Component {
+export default class NavigationBarAdmin extends Component {
   
   render() {
     return (
@@ -24,32 +24,32 @@ export default class NavigationBar extends Component {
             backgroundColor: "red",
         }}>
           <Container>
-            <Navbar.Brand href="#home">Thư viện trực tuyến</Navbar.Brand>
+            <Navbar.Brand to="/">Thư viện trực tuyến</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
-                <Nav.Link href="#home">Trang chủ</Nav.Link>
-                <Nav.Link href="#link">Tra cứu sách</Nav.Link>
-                <Nav.Link href="#link">Giỏ sách của bạn</Nav.Link>
+                <Nav.Link as={Link} to="/">Trang chủ</Nav.Link>
+                <Nav.Link  as={Link} to="/hoadon">Quản lý hoá đơn</Nav.Link>
+                <Nav.Link  as={Link} to="/thongke">Thống kê</Nav.Link>
                 <NavDropdown title="Quản lý sách" id="basic-nav-dropdown">
-                  <NavDropdown.Item href="#action/3.1">
-                    Đang mượn
+                  <NavDropdown.Item  as={Link} to="/quanly/add">
+                    Thêm sách
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action/3.2">
-                    Đã mượn
+                  <NavDropdown.Item  as={Link} to="/quanly/update" >
+                    Sửa sách
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action/3.3">
-                    Mượn sách
+                  <NavDropdown.Item  as={Link} to="/quanly/delete">
+                    Xoá sách
                   </NavDropdown.Item>
                 </NavDropdown>
                 <NavDropdown title="Cá nhân" id="basic-nav-dropdown">
-                  <NavDropdown.Item href="#action/3.1">
+                  <NavDropdown.Item  as={Link} to="/user/info">
                     Thông tin cá nhân
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action/3.2">
+                  <NavDropdown.Item  as={Link} to="/user/logout">
                     Đăng xuất
                   </NavDropdown.Item>
                 </NavDropdown>

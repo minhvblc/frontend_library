@@ -4,19 +4,21 @@ import { Container, ListGroup } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavigationBar from './component/NavigationBar';
 import ListBook from './component/ListBook';
-import Book from './model/Book';
+import BookList from './model/Book';
+import FormInputBook from './component/FormInputBook';
 import MuonSach from './component/MuonSach';
-const book = [new Book("Sach", "Minh", "Kim dong"), new Book("Sach", "Minh", "Kim dong"), new Book("Sach", "Minh", "Kim dong")];
+import AuthorNXBDropDown from './component/AuthorNXBDropDown';
+import MainView from './component/MainView';
+const book = [new BookList("Sach", "Minh", "Kim dong"), new BookList("Sach", "Minh", "Kim dong"), new BookList("Sach", "Minh", "Kim dong")];
 export default class App extends Component {
+ 
   render() {
     return (
-      <Container style={{
-        width: "100%",
-        height: "100%",
+      <Container fluid style={{
+        padding: '0',
+        backgroundImage: `url("./asset/background.jpg")`,
       }}>
-        <NavigationBar/>
-        <ListBook listBooks={book}/>
-        <MuonSach/>
+        <MainView/>
       </Container>
 
     )

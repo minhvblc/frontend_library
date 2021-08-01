@@ -4,7 +4,9 @@ export default class MuonSach extends Component {
   render() {
     return (
       <div>
-        <Container className="bg">
+        <Container fluid style={{
+          padding:0
+        }}>
           <Form>
             <Form.Group className="mb-3" controlId="formBasicBookName">
               <Form.Label>Tên sách</Form.Label>
