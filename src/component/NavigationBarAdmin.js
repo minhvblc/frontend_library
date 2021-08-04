@@ -21,7 +21,7 @@ export default class NavigationBarAdmin extends Component {
       >
         <Navbar  expand= "lg" style={{
             width: "100px !important" ,
-            backgroundColor: "red",
+            backgroundColor: "#f2dcb3",
         }}>
           <Container>
             <Navbar.Brand to="/">Thư viện trực tuyến</Navbar.Brand>

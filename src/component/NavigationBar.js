@@ -21,7 +21,7 @@ export default class NavigationBar extends Component {
       >
         <Navbar  expand= "lg" style={{
             width: "100px !important" ,
-            backgroundColor: "red",
+            backgroundColor: "#f2dcb3",
         }}>
           <Container>
             <Navbar.Brand href="#home">Thư viện trực tuyến</Navbar.Brand>

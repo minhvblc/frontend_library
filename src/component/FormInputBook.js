@@ -60,14 +60,15 @@ export default class FormInputBook extends Component {
   submitBook = () => {
     window.alert(this.state.name);
     console.log(this.state.name)
+    console.log("aaaaaa");
   };
   render() {
     return (
-      <div>
-        <Container fluid className="bg">
+      
+        <Container className="bg" >
           <Form>
             <Form.Group className="mb-3" controlId="formBookName">
-              <Form.Label>Tên sáchl</Form.Label>
+              <Form.Label>Tên sách</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Nhập tên sách"
@@ -147,7 +148,7 @@ export default class FormInputBook extends Component {
             </Button>
           </Form>
         </Container>
-      </div>
+     
     );
   }
 }
