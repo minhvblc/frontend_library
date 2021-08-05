@@ -1,8 +1,23 @@
 import React, { Component } from "react";
-import { Table } from "react-bootstrap";
+import { Container, Table } from "react-bootstrap";
 export default class ListBook extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchText : "",
+      data : this.props.listBooks,
+    }
+  }
+  handleSearchbar = (e) => {
+    this.setState({searchText: e.target.value});
+    const filterData = this.props.listBooks.filter(book => book.name.includes(e.target.value));
+    this.setState({data : filterData});
+    
+  }
   render() {
     return (
+      <Container>
+        <input type="text" placeholder="Search" onChange={this.handleSearchbar}></input>
       <Table>
         <thead>
           <tr>
@@ -12,7 +27,7 @@ export default class ListBook extends Component {
           </tr>
         </thead>
         <tbody>
-        {this.props.listBooks.map((book) => {
+        {this.state.data.map((book) => {
           return (
             <tr>
             <td>{book.name}</td>
@@ -24,6 +39,8 @@ export default class ListBook extends Component {
         </tbody>
         
       </Table>
+      </Container>
+      
     );
   }
 }

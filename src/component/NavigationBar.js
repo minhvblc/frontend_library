@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import {
-  Form,
-  Button,
   Container,
   NavDropdown,
   Navbar,
@@ -10,8 +8,8 @@ import {
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/Login+Logout.css";
 import "../css/NavBar.css";
+import {Link} from "react-router-dom";
 import styled from 'styled-components'
-
 
 export default class NavigationBar extends Component {
   
@@ -28,28 +26,28 @@ export default class NavigationBar extends Component {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
-                <Nav.Link href="#home">Trang chủ</Nav.Link>
-                <Nav.Link href="#link">Tra cứu sách</Nav.Link>
-                <Nav.Link href="#link">Giỏ sách của bạn</Nav.Link>
+                <Nav.Link as={Link} to="/">Trang chủ</Nav.Link>
+                <Nav.Link as={Link} to="/tracuu">Tra cứu sách</Nav.Link>
+                <Nav.Link as={Link} to="/giosach">Giỏ sách của bạn</Nav.Link>
                 <NavDropdown title="Quản lý sách" id="basic-nav-dropdown">
-                  <NavDropdown.Item href="#action/3.1">
+                  <NavDropdown.Item as={Link} to="/quanly/dangmuon">
                     Đang mượn
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action/3.2">
+                  <NavDropdown.Item as={Link} to="/quanly/damuon">
                     Đã mượn
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action/3.3">
+                  <NavDropdown.Item as={Link} to="/quanly/muonsach">
                     Mượn sách
                   </NavDropdown.Item>
                 </NavDropdown>
                 <NavDropdown title="Cá nhân" id="basic-nav-dropdown">
-                  <NavDropdown.Item href="#action/3.1">
+                  <NavDropdown.Item  as={Link} to="/user/info">
                     Thông tin cá nhân
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action/3.2">
+                  <NavDropdown.Item to="/user/logout">
                     Đăng xuất
                   </NavDropdown.Item>
                 </NavDropdown>

@@ -1,47 +1,76 @@
-import React, { Component } from "react";
-import NavigationBarAdmin from "./NavigationBarAdmin";
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-  } from "react-router-dom";
-import Login from "./Login"
-import ListBook from "./ListBook"
+import Login from "./Login";
+import ListBook from "./ListBook";
 import MuonSach from "./MuonSach";
 import FormInputBook from "./FormInputBook";
 import UserInfo from "./UserInfo";
 import Home from "./Home";
+import BookList from "../model/Book";
+
+import React, { Component } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import NavigationBar from "./NavigationBar";
+
+const book = [
+  new BookList("Sach van", "Nguyen Van A", "Kim dong"),
+  new BookList("Sach toan", "Nguyen Van B", "Kim dong"),
+  new BookList("Truyen cuoi", "Nguyen Van C", "Kim dong"),
+  new BookList("Truyen ngu ngon", "Nguyen Van D", "Kim dong"),
+  new BookList("Truyen doremon", "Nguyen Van E", "Kim dong"),
+  new BookList("Sach tham khao", "Nguyen Van F", "Kim dong"),
+  new BookList("Sach hoa", "Nguyen Van G", "Kim dong"),
+  new BookList("Sach dia", "Nguyen Van H", "Kim dong"),
+  new BookList("Sach su", "Nguyen Van I", "Kim dong"),
+  new BookList("Sach ly", "Nguyen Van K", "Kim dong"),
+  new BookList("Sach hoa", "Nguyen Van L", "Kim dong"),
+  new BookList("Truyen tranh", "Nguyen Van M", "Kim dong"),
+];
+const book1 = [
+  new BookList("Sach tham khao", "Nguyen Van F", "Kim dong"),
+  new BookList("Sach hoa", "Nguyen Van G", "Kim dong"),
+  new BookList("Sach dia", "Nguyen Van H", "Kim dong"),
+  new BookList("Sach su", "Nguyen Van I", "Kim dong"),
+  new BookList("Sach ly", "Nguyen Van K", "Kim dong"),
+  new BookList("Sach hoa", "Nguyen Van L", "Kim dong"),
+  new BookList("Truyen tranh", "Nguyen Van M", "Kim dong"),
+]
+const book2 = [
+  new BookList("Sach van", "Nguyen Van A", "Kim dong"),
+  new BookList("Sach toan", "Nguyen Van B", "Kim dong"),
+  new BookList("Truyen cuoi", "Nguyen Van C", "Kim dong"),
+  new BookList("Truyen ngu ngon", "Nguyen Van D", "Kim dong"),
+  new BookList("Truyen doremon", "Nguyen Van E", "Kim dong"),
+  new BookList("Sach tham khao", "Nguyen Van F", "Kim dong"),
+  new BookList("Sach hoa", "Nguyen Van G", "Kim dong"),
+  new BookList("Sach dia", "Nguyen Van H", "Kim dong"),
+]
 export default class MainView extends Component {
   render() {
     return (
       <Router>
-        <NavigationBarAdmin />
+        <NavigationBar />
         <Switch>
-          <Route path="/hoadon">
-            <Login />
+          <Route path="/tracuu">
+            <ListBook listBooks={book} />
           </Route>
-          <Route path="/thongke">
+          <Route path="/giosach">
+            <ListBook listBooks={book1}/>
+          </Route>
+          <Route path="/quanly/damuon">
+            <ListBook listBooks={book2} />
+          </Route>
+          <Route path="/quanly/dangmuon">
+            <ListBook listBooks={book} />
+          </Route>
+          <Route path="/quanly/muonsach">
             <MuonSach />
           </Route>
-          <Route path='/quanly/add'>
-            <FormInputBook/>
-          </Route>
-          <Route path='/quanly/delete'>
-            <FormInputBook/>
-          </Route>
-          <Route path='/quanly/update'>
-            <FormInputBook/>
-          </Route>
           <Route path="/user/info">
-            <UserInfo/>
+            <UserInfo />
           </Route>
-          <Route path='/'>
-            <Home/>
+          <Route path="/">
+            <Home />
           </Route>
-          
         </Switch>
-
       </Router>
     );
   }
