@@ -4,69 +4,50 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/Login+Logout.css";
 import BookModel from "../model/BookModel";
 import { tsImportEqualsDeclaration } from "@babel/types";
-
+import Footer from "./Footer";
 export default class FormInputBook extends Component {
   constructor(props) {
     super(props);
     this.state = {
       name: "",
       quantity: "",
-      bookRankID: "",
-      shortDesc: "",
-      detaiDesc: "",
       publisherId: "",
-      yearOfPublic: "",
-      languageId: "",
-      code: "",
+      nxb: "",
+      author: "",
     };
   }
   handleQuantityChange = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     this.setState({ quantity: e.target.value });
   };
-  handleBookRankIDChange = (e) => {
-    e.preventDefault()
-    this.setState({ bookRankID: e.target.value });
-  };
-  handleShortDescChange = (e) => {
-    e.preventDefault()
-    this.setState({ shortDesc: e.target.value });
-  };
-  handleDetaiDescChange = (e) => {
-    e.preventDefault()
-    this.setState({ detaiDesc: e.target.value });
-  };
   handlePublisherIdChange = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     this.setState({ publisherId: e.target.value });
   };
-  handleYearOfPublicChange = (e) => {
-    e.preventDefault()
-    this.setState({ yearOfPublic: e.target.value });
-  };
-  handleLanguageIdChange = (e) => {
-    e.preventDefault()
-    this.setState({ languageId: e.target.value });
-  };
-  handleCodeChange = (e) => {
-    e.preventDefault()
-    this.setState({ code: e.target.value });
+  handleNXBChange = (e) => {
+    e.preventDefault();
+    this.setState({ nxb: e.target.value });
   };
   handleNameChange = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     this.setState({ name: e.target.value });
-    console.log(this.state.name)
+    console.log(this.state.name);
+  };
+  handleAuthorChange = (e) => {
+    e.preventDefault();
+    this.setState({ author: e.target.value });
+    console.log(this.state.name);
   };
   submitBook = () => {
     window.alert(this.state.name);
-    console.log(this.state.name)
+    console.log(this.state.name);
     console.log("aaaaaa");
   };
   render() {
     return (
       
-        <Container className="bg" >
-          <Form>
+        <Container  fluid style = {{padding:0}}>
+          <Form fluid  style={{ marginTop: 100 }}>
             <Form.Group className="mb-3" controlId="formBookName">
               <Form.Label>Tên sách</Form.Label>
               <Form.Control
@@ -83,70 +64,30 @@ export default class FormInputBook extends Component {
                 onChange={this.handleQuantityChange}
               />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBookRankId">
-              <Form.Label>Book rank ID</Form.Label>
+            <Form.Group className="mb-3" controlId="formBookNXB">
+              <Form.Label>Nhà xuất bản</Form.Label>
               <Form.Control
                 type="text"
                 placeholder=""
-                onChange={this.handleBookRankIDChange}
+                onChange={this.handleNXBChange}
               />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBookShortDesc">
-              <Form.Label>Short Desc</Form.Label>
+
+            <Form.Group className="mb-3" controlId="formBookAuthor">
+              <Form.Label>Tác giả</Form.Label>
               <Form.Control
                 type="text"
                 placeholder=""
-                onChange={this.handleShortDescChange}
+                onChange={this.handleAuthorChange}
               />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBookDetaiDesc">
-              <Form.Label>Detail Desc</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder=""
-                onChange={this.handleDetaiDescChange}
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBookPublisherId">
-              <Form.Label>Publisher ID</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder=""
-                onChange={this.handlePublisherIdChange}
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBookYearOfPublic">
-              <Form.Label>Year Of Public</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder=""
-                onChange={this.handleYearOfPublicChange}
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBookLanguageId">
-              <Form.Label>Language ID</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder=""
-                onChange={this.handleLanguageIdChange}
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBookCode">
-              <Form.Label>Code</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder=""
-                onChange={this.handleCodeChange}
-              />
-            </Form.Group>
-            <Button
-              variant="primary"
-              type="submit"
-             onSubmit = {this.submitBook}
-            >
+
+            <Button variant="primary" type="submit" onSubmit={this.submitBook}>
               Gửi
             </Button>
+            
           </Form>
+          <Footer />
         </Container>
      
     );

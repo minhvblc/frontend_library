@@ -1,6 +1,6 @@
-import Login from "./Login";
+
 import ListBook from "./ListBook";
-import MuonSach from "./MuonSach";
+
 import FormInputBook from "./FormInputBook";
 import UserInfo from "./UserInfo";
 import Home from "./Home";
@@ -8,7 +8,9 @@ import BookList from "../model/Book";
 
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import NavigationBar from "./NavigationBar";
+import ThongKe from "./ThongKe";
+import NavigationBar from "./NavigationBar"
+
 
 const book = [
   new BookList("Sach van", "Nguyen Van A", "Kim dong"),
@@ -32,7 +34,7 @@ const book1 = [
   new BookList("Sach ly", "Nguyen Van K", "Kim dong"),
   new BookList("Sach hoa", "Nguyen Van L", "Kim dong"),
   new BookList("Truyen tranh", "Nguyen Van M", "Kim dong"),
-]
+];
 const book2 = [
   new BookList("Sach van", "Nguyen Van A", "Kim dong"),
   new BookList("Sach toan", "Nguyen Van B", "Kim dong"),
@@ -42,28 +44,26 @@ const book2 = [
   new BookList("Sach tham khao", "Nguyen Van F", "Kim dong"),
   new BookList("Sach hoa", "Nguyen Van G", "Kim dong"),
   new BookList("Sach dia", "Nguyen Van H", "Kim dong"),
-]
+];
 export default class MainView extends Component {
   render() {
     return (
       <Router>
         <NavigationBar />
         <Switch>
-          <Route path="/tracuu">
-            <ListBook listBooks={book} />
+          <Route path="/thongke">
+            <ThongKe/>
           </Route>
           <Route path="/giosach">
-            <ListBook listBooks={book1}/>
+            <ListBook listBooks={book1} />
           </Route>
-          <Route path="/quanly/damuon">
-            <ListBook listBooks={book2} />
+          <Route path="/quanly/themsach">
+            <FormInputBook />
           </Route>
-          <Route path="/quanly/dangmuon">
+          <Route path="/quanly/danhsach">
             <ListBook listBooks={book} />
           </Route>
-          <Route path="/quanly/muonsach">
-            <MuonSach />
-          </Route>
+
           <Route path="/user/info">
             <UserInfo />
           </Route>
@@ -71,6 +71,8 @@ export default class MainView extends Component {
             <Home />
           </Route>
         </Switch>
+      
+       
       </Router>
     );
   }
