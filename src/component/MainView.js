@@ -1,16 +1,22 @@
-
 import ListBook from "./ListBook";
 
 import FormInputBook from "./FormInputBook";
 import UserInfo from "./UserInfo";
 import Home from "./Home";
 import BookList from "../model/Book";
-
+import Login from "./Login";
 import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+} from "react-router-dom";
 import ThongKe from "./ThongKe";
-import NavigationBar from "./NavigationBar"
-
+import NavigationBar from "./NavigationBar";
+import Footer from "./Footer";
+import { Container } from "react-bootstrap";
 
 const book = [
   new BookList("Sach van", "Nguyen Van A", "Kim dong"),
@@ -49,30 +55,100 @@ export default class MainView extends Component {
   render() {
     return (
       <Router>
-        <NavigationBar />
         <Switch>
-          <Route path="/thongke">
-            <ThongKe/>
-          </Route>
-          <Route path="/giosach">
-            <ListBook listBooks={book1} />
-          </Route>
-          <Route path="/quanly/themsach">
-            <FormInputBook />
-          </Route>
-          <Route path="/quanly/danhsach">
-            <ListBook listBooks={book} />
-          </Route>
+          <Route
+            path="/thongke"
+            render={() => {
+              return localStorage.getItem("accessToken") != null ? (
+                <Container fluid style={{padding:0}}>
+                  <NavigationBar fluid style={{padiing:0}}/>
 
-          <Route path="/user/info">
-            <UserInfo />
-          </Route>
+                  <ThongKe />
+                </Container>
+              ) : (
+                <Redirect to="/" />
+              );
+            }}
+          ></Route>
+
+          <Route
+            path="/giosach"
+            render={() => {
+              return localStorage.getItem("accessToken") != null ? (
+                <Container fluid style={{padding:0}}>
+                  <NavigationBar />
+
+                  <ListBook listBooks={book1} />
+                </Container>
+              ) : (
+                <Redirect to="/" />
+              );
+            }}
+          ></Route>
+
+          <Route
+            path="/quanly/themsach"
+            render={() => {
+              return localStorage.getItem("accessToken") != null ? (
+                <Container fluid style={{padding:0}}>
+                  <NavigationBar />
+                  <FormInputBook />{" "}
+                </Container>
+              ) : (
+                <Redirect to="/" />
+              );
+            }}
+          ></Route>
+
+          <Route
+            path="/quanly/danhsach"
+            render={() => {
+              return localStorage.getItem("accessToken") != null ? (
+                <Container fluid style={{padding:0}}>
+                  <NavigationBar />
+
+                  <ListBook listBooks={book1} />
+                </Container>
+              ) : (
+                <Redirect to="/" />
+              );
+            }}
+          ></Route>
+
+          <Route
+            path="/user/info"
+            render={() => {
+              return localStorage.getItem("accessToken") != null ? (
+                <Container fluid style={{padding:0}}>
+                  <NavigationBar />
+
+                  <UserInfo />
+                </Container>
+              ) : (
+                <Redirect to="/" />
+              );
+            }}
+          ></Route>
+
+          <Route
+            path="/home"
+            render={() => {
+              return localStorage.getItem("accessToken") != null ? (
+                <Container fluid style={{padding:0}}>
+                  <NavigationBar />
+
+                  <Home />
+                </Container>
+              ) : (
+                <Redirect to="/" />
+              );
+            }}
+          ></Route>
+
           <Route path="/">
-            <Home />
+            <Login />
           </Route>
         </Switch>
-      
-       
       </Router>
     );
   }

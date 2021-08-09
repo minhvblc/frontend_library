@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Container, Table } from "react-bootstrap";
+import Footer from "./Footer";
 export default class ListBook extends Component {
   constructor(props) {
     super(props);
@@ -18,7 +19,7 @@ export default class ListBook extends Component {
     return (
       <Container>
         <input type="text" placeholder="Search" onChange={this.handleSearchbar}></input>
-      <Table>
+      <Table style={{marginBottom: 400}}>
         <thead>
           <tr>
             <th>Tên sách</th>
@@ -39,8 +40,9 @@ export default class ListBook extends Component {
         </tbody>
         
       </Table>
+      <Footer/>
       </Container>
-      
+     
     );
   }
 }

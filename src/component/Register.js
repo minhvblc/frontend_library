@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import {Form, Button} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/Login+Logout.css';
+import Footer from "./Footer";
 export default class Register extends Component {
   render() {
     return (
@@ -16,10 +17,11 @@ export default class Register extends Component {
             <Form.Label>Mật khẩu</Form.Label>
             <Form.Control type="password" placeholder="Nhập mật khẩu" />
           </Form.Group>
-          <Button variant="primary" type="submit">
+          <Button variant="primary" type="submit" style={{marginBottom: 400}}> 
             Đăng ký
           </Button>
         </Form>
+        <Footer/>
       </div>
     );
   }

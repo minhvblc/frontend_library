@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import MainView from './component/MainView';
 
+
 export default class App extends Component {
  
   render() {
@@ -15,7 +16,7 @@ export default class App extends Component {
       
       }}>
         <MainView/>
-       
+      
       </Container>
 
     )

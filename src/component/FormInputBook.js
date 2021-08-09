@@ -82,12 +82,12 @@ export default class FormInputBook extends Component {
               />
             </Form.Group>
 
-            <Button variant="primary" type="submit" onSubmit={this.submitBook}>
+            <Button variant="primary" type="submit" onSubmit={this.submitBook} style={{marginBottom: 400}}>
               Gửi
             </Button>
             
           </Form>
-          <Footer />
+          <Footer/>
         </Container>
      
     );

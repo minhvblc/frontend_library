@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Form, Button, Container } from "react-bootstrap";
+import Footer from "./Footer";
 export default class MuonSach extends Component {
   render() {
     return (
@@ -7,7 +8,7 @@ export default class MuonSach extends Component {
         <Container fluid style={{
           padding:0
         }}>
-          <Form>
+          <Form style={{marginBottom: 400}}>
             <Form.Group className="mb-3" controlId="formBasicBookName">
               <Form.Label>Tên sách</Form.Label>
               <Form.Control type="text" placeholder="Nhập tên sách" />
@@ -24,6 +25,7 @@ export default class MuonSach extends Component {
               Đăng ký mượn
             </Button>
           </Form>
+          <Footer/>
         </Container>
       </div>
     );

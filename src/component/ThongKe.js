@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Table } from "react-bootstrap";
+import Footer from "./Footer";
 export default function ThongKe() {
   const [numOfBooks, setIndex] = useState(0);
   const [nxb_gia, setNxb_Gia] = useState([]);
@@ -12,7 +13,7 @@ export default function ThongKe() {
       <h6 style={{ marginTop: 30, marginLeft: 40 }}>{"Tổng số sách: " + numOfBooks}</h6>
       <h6 style={{ marginTop: 30 ,  marginLeft: 40}}>Tổng số tiền sách theo nhà xuất bản </h6>
 
-      <Table style={{ marginTop: 30,  marginLeft: 40 }}>
+      <Table style={{ marginTop: 30,  marginLeft: 40, marginBottom: 300 }}>
         <thead>
           <tr>
             <th>Tên nhà xuất bản</th>
@@ -30,6 +31,7 @@ export default function ThongKe() {
           })}
         </tbody>
       </Table>
+        <Footer/>
     </div>
   );
 }

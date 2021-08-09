@@ -24,7 +24,7 @@ export default function Home() {
    new BookList("Sach dia", "Nguyen Van H", "Kim dong")])
  }, []);
   return (
-    <div style={{ height: 200 }}>
+    <div >
       <Carousel activeIndex={index} onSelect={handleSelect}>
         <Carousel.Item style={{ height: 250 }}>
           <Image
@@ -51,7 +51,7 @@ export default function Home() {
           />
         </Carousel.Item>
       </Carousel>
-      <Container>
+      <Container style={{marginBottom: 400}}>
         <h5 style={{ marginTop: 50, marginLeft: 30 }}>Truyên mới</h5>
         <Row xs={1} md={4} className="g-4">
           {books.map((book, idx) => (
@@ -72,8 +72,8 @@ export default function Home() {
           ))}
         </Row>
         
-      </Container>
-      <Footer style={{ marginTop: 300 }}/>
+      </Container >
+      <Footer style={{marginTop: 300}}/>
     </div>
   );
 }

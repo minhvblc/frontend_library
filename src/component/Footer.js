@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row, Card } from "react-bootstrap";
 export default function Footer() {
   return (
-    <div>
+    <div  className="fixed-bottom" style ={{marginTop:300}}>
       <Container  fluid  style={{
         padding: '0',
         marginTop: 50,
