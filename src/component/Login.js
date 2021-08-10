@@ -5,10 +5,14 @@ import '../css/Login+Logout.css';
 import Footer from "./Footer";
 import logo from "../asset/books.png";
 import { useHistory } from "react-router-dom";
-
+import { useState } from "react";
 
 export default function Login() {
   let history = useHistory()
+  const [email, setEmail] = useState();
+  // saveEmail = (e) => {
+  //   setEmail(e.target.value)
+  // }
   return (
     <Container className = "bg" fluid style ={{padding:0}}>
       <Navbar
@@ -36,15 +40,15 @@ export default function Login() {
           <h3 style={{marginBottom:30}}>Đăng nhập</h3>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Địa chỉ mail</Form.Label>
-            <Form.Control type="email" placeholder="Nhập email" />
+            <Form.Control type="email" placeholder="Nhập email"  onChange={e => setEmail(e.target.value)}/>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Mật khẩu</Form.Label>
-            <Form.Control type="password" placeholder="Nhập mật khẩu" />
+            <Form.Control type="password" placeholder="Nhập mật khẩu"/>
           </Form.Group>
           <Button variant="primary" type="submit" onClick = {() => {
             localStorage.setItem("accessToken", true)
-           
+            localStorage.setItem("email", email)
             history.replace("/home")
           }}>
             Đăng nhập

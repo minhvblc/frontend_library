@@ -69,7 +69,7 @@ export default function NavigationBar() {
                     to="/user/logout"
                     onClick={() => {
                       localStorage.removeItem("accessToken");
-
+                      localStorage.removeItem("email")
                       history.replace("/");
                     }}
                   >

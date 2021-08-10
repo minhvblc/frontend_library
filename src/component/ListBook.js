@@ -1,3 +1,4 @@
+
 import React, { Component } from "react";
 import { Form,Button,Container, Table,  NavDropdown, Navbar, Nav } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -42,7 +43,12 @@ export default class ListBook extends Component {
   
     
   }
-  
+  handleSearchbar = (e) => {
+    this.setState({searchText: e.target.value});
+    const filterData = this.props.listBooks.filter(book => book.name.includes(e.target.value));
+    this.setState({data : filterData});
+    
+  }
   render() {
     return (
       <Container>

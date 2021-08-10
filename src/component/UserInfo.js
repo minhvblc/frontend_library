@@ -6,8 +6,9 @@ function deleteUser(e)  {
 
 }
 export default function UserInfo() {
-  const [name, setName] = useState("Unknown");
-  const [email, setEmail] = useState("Unknown");
+ 
+  const [name, setName] =  useState("Unknown");
+  const [email, setEmail] =  useState(localStorage.getItem("email"));
   
   return (
     
