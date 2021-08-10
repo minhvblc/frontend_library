@@ -17,6 +17,7 @@ import ThongKe from "./ThongKe";
 import NavigationBar from "./NavigationBar";
 import Footer from "./Footer";
 import { Container } from "react-bootstrap";
+import UserInfoUpdate from "./UserInfoupdate"
 
 const book = [
   new BookList("Sach van", "Nguyen Van A", "Kim dong"),
@@ -60,8 +61,8 @@ export default class MainView extends Component {
             path="/thongke"
             render={() => {
               return localStorage.getItem("accessToken") != null ? (
-                <Container fluid style={{padding:0}}>
-                  <NavigationBar fluid style={{padiing:0}}/>
+                <Container fluid style={{ padding: 0 }}>
+                  <NavigationBar fluid style={{ padiing: 0 }} />
 
                   <ThongKe />
                 </Container>
@@ -70,12 +71,38 @@ export default class MainView extends Component {
               );
             }}
           ></Route>
+          <Route path="/quanly/UserInfoUpdate" render={() => {
+              return localStorage.getItem("accessToken") != null ? (
+                <Container fluid style={{ padding: 0 }}>
+                  <NavigationBar fluid style={{ padiing: 0 }} />
+
+                  <UserInfoUpdate />
+                </Container>
+              ) : (
+                <Redirect to="/" />
+              );
+            }}>
+            
+          </Route>
+          <Route path="/quanly/suasach"  render={() => {
+              return localStorage.getItem("accessToken") != null ? (
+                <Container fluid style={{ padding: 0 }}>
+                  <NavigationBar fluid style={{ padiing: 0 }} />
+
+                  <FormInputBook />
+                </Container>
+              ) : (
+                <Redirect to="/" />
+              );
+            }}>
+            
+          </Route>
 
           <Route
             path="/giosach"
             render={() => {
               return localStorage.getItem("accessToken") != null ? (
-                <Container fluid style={{padding:0}}>
+                <Container fluid style={{ padding: 0 }}>
                   <NavigationBar />
 
                   <ListBook listBooks={book1} />
@@ -90,7 +117,7 @@ export default class MainView extends Component {
             path="/quanly/themsach"
             render={() => {
               return localStorage.getItem("accessToken") != null ? (
-                <Container fluid style={{padding:0}}>
+                <Container fluid style={{ padding: 0 }}>
                   <NavigationBar />
                   <FormInputBook />{" "}
                 </Container>
@@ -104,7 +131,7 @@ export default class MainView extends Component {
             path="/quanly/danhsach"
             render={() => {
               return localStorage.getItem("accessToken") != null ? (
-                <Container fluid style={{padding:0}}>
+                <Container fluid style={{ padding: 0 }}>
                   <NavigationBar />
 
                   <ListBook listBooks={book1} />
@@ -119,7 +146,7 @@ export default class MainView extends Component {
             path="/user/info"
             render={() => {
               return localStorage.getItem("accessToken") != null ? (
-                <Container fluid style={{padding:0}}>
+                <Container fluid style={{ padding: 0 }}>
                   <NavigationBar />
 
                   <UserInfo />
@@ -134,7 +161,7 @@ export default class MainView extends Component {
             path="/home"
             render={() => {
               return localStorage.getItem("accessToken") != null ? (
-                <Container fluid style={{padding:0}}>
+                <Container fluid style={{ padding: 0 }}>
                   <NavigationBar />
 
                   <Home />

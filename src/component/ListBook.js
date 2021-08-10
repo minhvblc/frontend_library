@@ -1,25 +1,53 @@
 import React, { Component } from "react";
-import { Container, Table } from "react-bootstrap";
+import { Form,Button,Container, Table,  NavDropdown, Navbar, Nav } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../css/Login+Logout.css";
+import BookModel from "../model/BookModel";
+import { tsImportEqualsDeclaration } from "@babel/types";
 import Footer from "./Footer";
+import FormInputBook from "./FormInputBook";
+import { Link } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+import "../css/NavBar.css";
+import logo from "../asset/books.png";
+
+
+import styled from "styled-components";
+
 export default class ListBook extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      name: "",
+      quantity: "",
+      publisherId: "",
+      nxb: "",
+      author: "",
       searchText : "",
       data : this.props.listBooks,
     }
   }
-  handleSearchbar = (e) => {
-    this.setState({searchText: e.target.value});
-    const filterData = this.props.listBooks.filter(book => book.name.includes(e.target.value));
-    this.setState({data : filterData});
+  deleteBook = (book) => {
+    console.log(book)
+   
+  
+    const index = this.state.data.indexOf(book)
+    console.log(index)
+    this.setState({
+      data : this.state.data.filter(function(item) {
+        return item !== book
+    })
+    })
+  
     
   }
+  
   render() {
     return (
       <Container>
         <input type="text" placeholder="Search" onChange={this.handleSearchbar}></input>
-      <Table style={{marginBottom: 400}}>
+      <Table>
         <thead>
           <tr>
             <th>Tên sách</th>
@@ -34,15 +62,20 @@ export default class ListBook extends Component {
             <td>{book.name}</td>
             <td>{book.author}</td>
             <td>{book.nxb}</td>
+            <td> <a href="/quanly/suasach">Sửa</a></td>
+            <td><button  onClick={(e) => { if (window.confirm('Bạn muốn xoá sách?')) this.deleteBook(book) } }>
+              Xóa
+</button></td>
+
           </tr>
+          
           );
         })}
         </tbody>
         
       </Table>
-      <Footer/>
       </Container>
-     
+      
     );
   }
 }
